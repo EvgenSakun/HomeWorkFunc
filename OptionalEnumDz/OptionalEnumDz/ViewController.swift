@@ -62,17 +62,29 @@ class ViewController: UIViewController {
         
         // 5:
         
-        enumeration()
+        let Book1 = Book.chapterOne(pages: 200)
+        let Book2 = Book.chapterTwo(pages: 138)
+        let Book3 = Book.chapterThree(pages: 197)
+        Book1.enumeration()
+        Book2.enumeration()
+        Book3.enumeration()
         
         enum Book {
             case chapterOne(pages: Int)
             case chapterTwo(pages: Int)
             case chapterThree(pages: Int)
-        }
-        
-        func enumeration() {
-            let book1 = Book.chapterThree(pages: 128)
-            print(book1)
+            
+            func enumeration() {
+                switch self {
+                case .chapterOne(let pages):
+                    print("В первой главе \(pages) страниц")
+                case .chapterTwo(let pages):
+                    print("Во второй главе \(pages) страниц")
+                case .chapterThree(let pages):
+                    print("В третьей главе \(pages) страниц")
+                }
+            }
+            
         }
         
         // 6:
